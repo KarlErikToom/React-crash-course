@@ -3,7 +3,7 @@ import Todo from "./compontents/Todo.jsx";
 import Title from "./compontents/title.jsx";
 import Modal from "./compontents/Modal.jsx";
 import Counter from "./compontents/Counter.jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +19,15 @@ function App() {
   function confirmModal() {
     setShowModal(false);
   }
+  useEffect(() => {
+    console.log("ONLY on mount");
+  }, []);
+  useEffect(()=>{
+    console.log("on mount AND on showModal change")
+  },[showModal])
+  useEffect(()=>{
+   console.log("EVERY render") 
+  })
 
   return (
     <div>
